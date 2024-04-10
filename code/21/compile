@@ -1,0 +1,6 @@
+转汇编：
+ gcc -S -fverbose-asm main.c
+
+转机器码：
+ gcc -m32 -g -o main main.c
+ objdump --source main.exe > main.dump
