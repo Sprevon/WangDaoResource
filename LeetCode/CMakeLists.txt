@@ -1,3 +1,5 @@
 add_executable(lc240327 lc240327.cpp)
 add_executable(lc240401 lc240401.cpp)
 add_executable(lc240423 lc240423.cpp)
+add_executable(lc1146 lc1146.cpp)
+add_executable(lc1329 lc1329.cpp)
