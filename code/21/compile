@@ -1,5 +1,8 @@
-转汇编：
+转AT&T汇编：
  gcc -S -fverbose-asm main.c
+转x86汇编：
+gcc -S -masm=intel -fverbose-asm assember.cpp -o assember1.s
+
 
 转机器码：
  gcc -m32 -g -o main main.c
