@@ -9,3 +9,5 @@ add_executable(isa isa.cpp)
 add_executable(assember assember.cpp)
 
 add_executable(assember2 assember2.cpp)
+
+add_executable(sizes sizes.cpp)

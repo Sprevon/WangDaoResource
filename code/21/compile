@@ -1,5 +1,6 @@
 转AT&T汇编：
  gcc -S -fverbose-asm main.c
+ gcc -S -fverbose-asm sizes.cpp -o sizes.s
 转x86汇编：
 gcc -S -masm=intel -fverbose-asm assember.cpp -o assember1.s
 

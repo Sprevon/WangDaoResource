@@ -53,3 +53,5 @@ add_executable(dp "hello_algo/dynamic_programming.cpp")
 add_subdirectory(LeetCode)
 
 add_subdirectory(textbook_problems)
+
+add_subdirectory(pat)
