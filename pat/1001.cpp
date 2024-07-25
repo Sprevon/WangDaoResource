@@ -1,56 +1,59 @@
 //
-// Created by Seven on 2024/5/28.
+// Created by Seven on 2024/7/23.
 //
 #include <iostream>
-#include <vector>
+#include <math.h>
 
 using namespace std;
 
-int main() {
-    long unsigned int cities;
-    cin >> cities;
-    long unsigned int highWays;
-    cin >> highWays;
-
-    //初始化
-    vector<long unsigned int> cityWaysCost;
-    cityWaysCost.reserve(highWays);
-    long unsigned int i;
-    for ( i = 0; i <= highWays; i++) {
-        cityWaysCost.push_back(0);
+int main(){
+    int a;
+    int b;
+    cin >> a;
+    cin >> b;
+    int c = a + b;
+    char arr[20];
+    for (char & i : arr) {
+        i = ' ';
     }
-
-    //录入各城市损失
-    long unsigned int c1, c2, cost, dest, high = 0;
-    for (i = 1; i <= highWays; i++){
-        cin >> c1;
-        cin >> c2;
-        cin >> cost;
-        cin >> dest;
-        if(dest){
-            cityWaysCost[c1] += cost;
-            cityWaysCost[c2] += cost;
-            if (cityWaysCost[c1] > high)
-                high = cityWaysCost[c1];
-            if(cityWaysCost[c2] > high)
-                high = cityWaysCost[c2];
-        }
-    }
-
-    //选择潜在损失最严重的
-    vector<long unsigned int> out;
-    for(i = 1; i <= highWays; i++){
-        if (cityWaysCost[i] == high)
-            out.push_back(i);
-    }
-    if (out.size() == cities){
-        cout << 0;
-    }else{
-        cout << out[0];
-        if(out.size() > 1){
-            for (i = 1; i < out.size(); i ++){
-                cout << " " << out[i];
+    int index = 0;
+    int count = 0;
+    if(c < 0){
+        c = abs(c);
+        while(c > 0){
+            arr[index++] = (c % 10) + 48;
+            count++;
+            if (count == 3){
+                arr[index++] = ',';
+                count = 0;
             }
+            c = c/10;
         }
+        if (arr[index - 1] == ','){
+            arr[index - 1] = '-';
+        } else{
+            arr[index] = '-';
+        }
+    } else if(c > 0){
+        while(c > 0){
+            arr[index++] = (c % 10) + 48;
+            count++;
+            if (count == 3){
+                arr[index++] = ',';
+                count = 0;
+            }
+            c = c/10;
+        }
+        if (arr[index - 1] == ','){
+            arr[index - 1] = ' ';
+        }
+    } else {
+        arr[index] = 48;
+    }
+    index = 19;
+    while(index >= 0){
+        if(arr[index] != ' ')
+            cout << arr[index];
+        index--;
     }
 }

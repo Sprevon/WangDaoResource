@@ -71,26 +71,38 @@ main:
 	movss	%xmm0, -24(%rbp)	 # tmp89, n.fl
 	movss	.LC1(%rip), %xmm0	 #, tmp90
 	movss	%xmm0, -20(%rbp)	 # tmp90, n.fl
+
+#循环初始化
  # sizes.cpp:18:     for (int i = 0; i < 10; i ++){
+       #原操作数   #目标操作数
 	movl	$0, -4(%rbp)	 #, i
+#循环体运行
 .L4:
+ #循环判断
  # sizes.cpp:18:     for (int i = 0; i < 10; i ++){
 	cmpl	$9, -4(%rbp)	 #, i
+	# 若大于则跳出循环
 	jg	.L2	 #,
+ #内部条件判断
  # sizes.cpp:19:         if (i < 9)
 	cmpl	$8, -4(%rbp)	 #, i
+	# 若大于则跳出if内容，直接开始执行本体
 	jg	.L3	 #,
  # sizes.cpp:20:             i++;
 	addl	$1, -4(%rbp)	 #, i
+#循环内容
 .L3:
  # sizes.cpp:21:         cout << i;
 	movl	-4(%rbp), %eax	 # i, tmp91
 	movl	%eax, %edx	 # tmp91,
 	movq	.refptr._ZSt4cout(%rip), %rcx	 #,
 	call	_ZNSolsEi	 #
+#自增并返回
  # sizes.cpp:18:     for (int i = 0; i < 10; i ++){
 	addl	$1, -4(%rbp)	 #, i
 	jmp	.L4	 #
+
+#循环结束
 .L2:
  # sizes.cpp:23:     int i[10] = {1,2,3, 4, 5, 6, 7, 8, 9, 10};
 	movl	$1, -128(%rbp)	 #, i
