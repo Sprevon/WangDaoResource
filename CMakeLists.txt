@@ -55,3 +55,5 @@ add_subdirectory(LeetCode)
 add_subdirectory(textbook_problems)
 
 add_subdirectory(pat)
+
+add_subdirectory(strengthen)
