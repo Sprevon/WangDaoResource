@@ -1,1 +1,5 @@
 add_executable(2011 2011.cpp)
+add_executable(2012 2012.cpp)
+add_executable(2013 2013.cpp)
+add_executable(2014 2014.cpp)
+add_executable(02 exam.cpp)
